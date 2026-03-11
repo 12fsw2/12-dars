@@ -7,7 +7,7 @@ module.exports = function(req, res, next) {
       const authorization = req.cookies.refresh_token
       
       if(!authorization) {
-        throw CustomErrorHandler.unauthorized("refresh token is not defined")
+        throw CustomErrorHandler.UnAuthorized("refresh token is not defined")
       }
 
       const decode = jwt.verify(authorization, process.env.REFRESH_SEKRET_KEY)
